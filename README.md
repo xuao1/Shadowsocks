@@ -65,6 +65,11 @@ Enjoy it!
 ufw enable
 ufw allow 15117
 ufw enable
+```
+
+或者：
+
+```shell
 apt install firewalld
 firewall-cmd --zone=public --add-port=15117/tcp --permanent
 firewall-cmd --reload
