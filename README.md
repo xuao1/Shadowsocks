@@ -66,12 +66,20 @@ ufw enable
 ufw allow 15117
 ufw enable
 apt install firewalld
-firewall-cmd --zone=public --add-port=[port number]/tcp --permanent
+firewall-cmd --zone=public --add-port=15117/tcp --permanent
 firewall-cmd --reload
 systemctl restart firewalld.service
 ```
 
 3、可通过该网站测试端口是否开启：[Open Port Check Tool - Test Port Forwarding on Your Router](https://www.yougetsignal.com/tools/open-ports/)
+
+### 3. (可选)为服务器开启 BBR 加速
+
+```shell
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+```
+
+[一键为VPS开启BBR拥塞控制算法加速你的VPS网络速度](https://blog.csdn.net/weixin_39075913/article/details/129773890#:~:text=连接到你的VPS后，直接执行如下脚本一键开启BBR加速： wget --no-check-certificate https%3A%2F%2Fgithub.com%2Fteddysun%2Facross%2Fraw%2Fmaster%2Fbbr.sh %26%26,chmod %2Bx bbr.sh %26%26.%2Fbbr.sh 由于BBR加速只支持Linux内核版本4.9以上的，因此脚本会先升级系统内核，之后再开启BBR。)
 
 ### 3. 在需要使用 VPN 的主机上安装客户端
 
